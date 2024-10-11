@@ -5,13 +5,18 @@
 #include <string>
 
 template <typename T>
-void  iter (T &address, T &length, T &f)
+void  iter (T *address, int length, void (*f)(T&))
 {
-    T c;
-    c = a;
-    a = b;
-    b = c;
+    for (int i = 0; i < length; i++)
+    {
+        f(address[i]);
+    }
 }
 
+template <typename T>
+void print(T &element)
+{
+    std::cout << element << std::endl;
+}
 
 #endif
